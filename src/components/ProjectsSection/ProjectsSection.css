@@ -1,0 +1,124 @@
+.projects-section {
+  background-color: var(--bg-deep); /* same as App.css, ensuring we keep padding/colors if needed */
+  padding: 80px 40px 140px; 
+}
+
+/* Because ScrollStack requires scrolling space, we add generous bottom padding */
+
+.projects-header {
+  margin-bottom: 24px;
+}
+
+/* ─── PROJECT CARD ────────────────────────────────── */
+.project-card {
+  display: flex;
+  gap: 32px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px; /* slightly softer for stack cards */
+  padding: 32px;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5); /* strong shadow distinguishes stacked cards */
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+  height: auto;
+  min-height: 400px;
+}
+
+.project-card:hover {
+  box-shadow: 0 15px 50px -10px rgba(0,0,0,0.8);
+}
+
+.project-image-placeholder {
+  flex: 1;
+  background-color: var(--bg-nav);
+  border: 1.5px dashed var(--text-secondary);
+  border-radius: 12px;
+  min-height: 300px;
+}
+
+.project-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-category {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(212, 175, 55, 0.1);
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  width: max-content;
+}
+
+.project-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.project-description {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.card-tag {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--border-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  margin-top: auto; /* push to bottom */
+}
+
+.project-link:hover {
+  opacity: 0.8;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .project-card {
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+  }
+  
+  .project-image-placeholder {
+    min-height: 200px;
+  }
+  
+  .project-title {
+    font-size: 24px;
+  }
+}
