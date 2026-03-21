@@ -1,0 +1,121 @@
+.leadership-section {
+  background-color: var(--bg-deep);
+  padding: 40px 40px;
+}
+
+/* ─── SECTION DIVIDER ─────────────────────────────── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeInDivider 0.8s ease forwards 0.2s;
+}
+
+@keyframes fadeInDivider {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transition: all 0.3s ease;
+}
+
+.divider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    transform: scale(1.2);
+  }
+}
+
+.section-divider:hover .divider-line {
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+.leadership-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.leadership-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 700px;
+}
+
+.leadership-item {
+  display: flex;
+  gap: 24px;
+}
+
+.leadership-indicator {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+.leadership-content {
+  flex: 1;
+}
+
+.leadership-role {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.leadership-org {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+}
+
+.leadership-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .leadership-list {
+    gap: 24px;
+  }
+
+  .leadership-item {
+    gap: 16px;
+  }
+}

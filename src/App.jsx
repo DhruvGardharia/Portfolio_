@@ -4,6 +4,9 @@ import AboutSection from './components/AboutSection/AboutSection'
 import ExperienceSection from './components/ExperienceSection/ExperienceSection'
 import SkillsSection from './components/SkillsSection/SkillsSection'
 import ProjectsSection from './components/ProjectsSection/ProjectsSection'
+import AchievementsSection from './components/AchievementsSection/AchievementsSection'
+import LeadershipSection from './components/LeadershipSection/LeadershipSection'
+import ResumeSection from './components/ResumeSection/ResumeSection'
 import './App.css'
 
 // ─── APP ──────────────────────────────────────────────────────────
@@ -59,6 +62,15 @@ export default function App() {
 
       {/* ── PROJECTS ───────────────────────────────── */}
       <ProjectsSection />
+
+      {/* ── ACHIEVEMENTS ───────────────────────────── */}
+      <AchievementsSection />
+
+      {/* ── LEADERSHIP ─────────────────────────────── */}
+      <LeadershipSection />
+
+      {/* ── RESUME ─────────────────────────────────── */}
+      <ResumeSection />
 
       {/* ── FOOTER ─────────────────────────────────── */}
       <footer id="footer" className="footer">

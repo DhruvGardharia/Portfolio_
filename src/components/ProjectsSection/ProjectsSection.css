@@ -1,6 +1,6 @@
 .projects-section {
   background-color: var(--bg-deep); /* same as App.css, ensuring we keep padding/colors if needed */
-  padding: 80px 40px 140px; 
+  padding: 80px 40px 40px; 
 }
 
 /* Because ScrollStack requires scrolling space, we add generous bottom padding */
