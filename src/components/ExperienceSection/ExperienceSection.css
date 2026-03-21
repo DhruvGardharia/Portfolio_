@@ -1,37 +1,46 @@
 .experience-section {
-  background-color: var(--bg-deep); /* Darker background layer */
+  background-color: var(--bg-deep);
   padding: 100px 40px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.8s ease;
 }
 
 .experience-inner {
-  max-width: 1160px; /* Fully matches the width of the Hero section */
+  max-width: 1160px;
   margin: 0 auto;
 }
-
-/* Reusing section-label and section-heading global styles that we defined in App.css earlier */
 
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
   margin-top: 48px;
 }
 
+/* ─── EXPERIENCE CARD ────────────────────────────── */
 .experience-card {
-  display: flex;
-  gap: 24px; /* Space between logo and content */
   background-color: var(--bg-card);
-  padding: 32px;
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.8s ease;
+  overflow: hidden;
 }
 
 .experience-card:hover {
-  transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover);
+}
+
+.experience-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 32px;
+  cursor: pointer;
+  transition: background-color 0.8s ease;
+}
+
+.experience-header:hover {
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .experience-logo-box {
@@ -41,60 +50,71 @@
   border: 1.5px dashed var(--text-secondary);
   border-radius: 12px;
   flex-shrink: 0;
-  display: flex; /* Centers fallback initial */
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.experience-logo-box.has-logo {
-  border: none; /* Remove dashed line when image is present */
-  background-color: #fff; /* Ensures transparent black-text logos are visible on dark themes */
-  width: 140px; /* Wide enough for rectangular logos like ValetPe */
-  height: 64px;
-  padding: 6px 12px; /* Breathing room inside the white box */
-}
-
-.experience-logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Will gracefully fit any shape without distortion */
-  border-radius: 0; /* Let the box handle the border radius */
-}
-
-.experience-logo-fallback {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--text-secondary);
-}
-
-.experience-details {
+.experience-header-content {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.experience-header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 12px;
+  min-width: 0;
 }
 
 .experience-company {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--text-primary);
-  margin: 0;
+  margin: 0 0 6px 0;
   letter-spacing: -0.3px;
 }
 
 .experience-role {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--accent);
   margin: 0;
+}
+
+.expand-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, color 0.8s ease;
+  width: 36px;
+  height: 36px;
+}
+
+.expand-toggle:hover {
+  color: var(--accent);
+}
+
+.experience-card.expanded .expand-toggle {
+  transform: rotate(180deg);
+}
+
+/* ─── EXPANDED DETAILS ───────────────────────────── */
+.experience-details {
+  padding: 0 32px 32px 32px;
+  padding-top: 0;
+  border-top: 1px solid var(--border-subtle);
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
 }
 
 .experience-subheader-row {
@@ -102,7 +122,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 20px;
 }
 
@@ -118,15 +138,17 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   padding: 4px 10px;
-  background-color: var(--accent-shadow); /* Subtle accent tint */
+  background-color: var(--accent-shadow);
   color: var(--accent);
-  border-radius: 4px; /* distinct rectangle chip */
+  border-radius: 4px;
+  transition: all 0.8s ease;
 }
 
 .experience-date {
   font-size: 13px;
   font-weight: 500;
   color: var(--text-secondary);
+  transition: color 0.8s ease;
 }
 
 .experience-points {
@@ -137,41 +159,81 @@
 }
 
 .experience-points li {
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--text-secondary);
-  line-height: 1.6; /* Tighter line height to look compact vertically */
-  margin-bottom: 6px; /* Space between bullets */
+  line-height: 1.6;
+  margin-bottom: 8px;
+  transition: color 0.8s ease;
 }
 
 .experience-points li::marker {
-  color: var(--text-secondary);
+  color: var(--accent);
+  transition: color 0.8s ease;
 }
 
-/* ─── RESPONSIVE ──────────────────────────────────── */
-@media (max-width: 600px) {
+/* ─── RESPONSIVE MOBILE ──────────────────────────── */
+@media (max-width: 768px) {
   .experience-section {
     padding: 80px 24px;
   }
 
-  .experience-card {
-    flex-direction: column;
-    padding: 24px 20px;
+  .experience-header {
+    padding: 24px;
     gap: 16px;
   }
 
+  .experience-details {
+    padding: 0 24px 24px 24px;
+  }
+
   .experience-logo-box {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
   }
-  
-  .experience-header-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+
+  .experience-company {
+    font-size: 16px;
   }
-  
-  .experience-subheader-row {
-    flex-direction: column;
-    align-items: flex-start;
+
+  .experience-role {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-section {
+    padding: 60px 16px;
+  }
+
+  .experience-header {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .experience-details {
+    padding: 0 16px 16px 16px;
+  }
+
+  .experience-logo-box {
+    width: 44px;
+    height: 44px;
+  }
+
+  .experience-company {
+    font-size: 15px;
+  }
+
+  .experience-role {
+    font-size: 12px;
+  }
+
+  .experience-points li {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .expand-toggle {
+    width: 32px;
+    height: 32px;
   }
 }

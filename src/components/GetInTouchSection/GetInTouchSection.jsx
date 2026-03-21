@@ -154,12 +154,12 @@ export default function GetInTouchSection() {
                   </svg>
                 </a>
 
-                <a href="https://leetcode.com/u/Dhruv1611" target="_blank" rel="noopener noreferrer" className="social-link" title="LeetCode">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2h-.5a2 2 0 0 0-2 2m0 0V5a2 2 0 0 0-2-2h-.5"></path>
-                    <path d="M14 5v4"></path>
-                  </svg>
-                </a>
+            <a href="https://leetcode.com/u/Dhruv1611" target="_blank" rel="noreferrer" className="social-link" aria-label="LeetCode">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </a>
               </div>
             </div>
           </div>

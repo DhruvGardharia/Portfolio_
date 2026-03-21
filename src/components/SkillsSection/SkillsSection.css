@@ -29,8 +29,8 @@
 .skills-visual-container {
   position: relative;
   width: 100%;
-  max-width: 550px; 
-  padding: 48px;
+  max-width: 850px;
+  padding: 40px 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,8 +38,10 @@
   background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%);
   border: 1px solid var(--border-subtle);
   box-shadow: 0 40px 80px -20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* Pulsing ambient accent glow deep behind the cubes */
@@ -56,6 +58,8 @@
   filter: blur(40px);
   z-index: 0;
   animation: pulse-glow 5s infinite alternate ease-in-out;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 @keyframes pulse-glow {
@@ -82,5 +86,47 @@
   .skills-visual {
     width: 100%;
     justify-content: center;
+  }
+  .skills-visual-container {
+    max-width: 700px;
+    padding: 32px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 60px 24px;
+  }
+  
+  .skills-visual-container {
+    max-width: 100%;
+    padding: 24px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 40px 16px;
+  }
+  
+  .skills-inner {
+    gap: 30px;
+  }
+
+  .section-label {
+    font-size: 12px;
+  }
+
+  .section-heading {
+    font-size: 28px;
+  }
+
+  .skills-description {
+    font-size: 14px;
+  }
+
+  .skills-visual-container {
+    max-width: 100%;
+    padding: 16px 20px;
   }
 }

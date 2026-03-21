@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import ScrollStack, { ScrollStackItem } from './ScrollStack';
 import creditflowImage from '../../assets/projects/creditscoring.png';
 import nexjobImage from '../../assets/projects/Nexjob.jpg';
@@ -34,7 +35,67 @@ const projectsData = [
   }
 ];
 
+// Shared project card component
+const ProjectCard = ({ project }) => (
+  <div className="project-card">
+    <div className="project-image-wrapper">
+      <div className="project-image-placeholder">
+        {project.image ? (
+          <img src={project.image} alt={project.title} className="project-image" />
+        ) : (
+          <div className="image-placeholder-text">Image coming soon</div>
+        )}
+      </div>
+    </div>
+    
+    <div className="project-info">
+      <h3 className="project-title">{project.title}</h3>
+      {project.subtitle && (
+        <p className="project-subtitle">{project.subtitle}</p>
+      )}
+      <p className="project-description">{project.oneLiner}</p>
+      
+      <div className="project-tags">
+        {project.tags.map(tag => (
+          <span className="card-tag" key={tag}>{tag}</span>
+        ))}
+      </div>
+      
+      <div className="project-links">
+        {project.liveDemo && (
+          <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="project-link demo-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+            Live Demo
+          </a>
+        )}
+        {project.github && (
+          <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link github-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V21"/>
+            </svg>
+            GitHub
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+);
+
 export default function ProjectsSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
   return (
     <section id="projects" className="projects-section">
       <div className="section-inner">
@@ -43,62 +104,29 @@ export default function ProjectsSection() {
           <h2 className="section-heading">Featured Projects</h2>
         </div>
         
-        <ScrollStack 
-          itemDistance={30}
-          itemScale={0.04}
-          baseScale={0.9}
-          itemStackDistance={30}
-          stackPosition="15%"
-        >
-          {projectsData.map((project, index) => (
-            <ScrollStackItem key={index}>
-              <div className="project-card">
-                <div className="project-image-wrapper">
-                  <div className="project-image-placeholder">
-                    {project.image ? (
-                      <img src={project.image} alt={project.title} className="project-image" />
-                    ) : (
-                      <div className="image-placeholder-text">Image coming soon</div>
-                    )}
-                  </div>
-                </div>
-                
-                <div className="project-info">
-                  <h3 className="project-title">{project.title}</h3>
-                  {project.subtitle && (
-                    <p className="project-subtitle">{project.subtitle}</p>
-                  )}
-                  <p className="project-description">{project.oneLiner}</p>
-                  
-                  <div className="project-tags">
-                    {project.tags.map(tag => (
-                      <span className="card-tag" key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                  
-                  <div className="project-links">
-                    {project.liveDemo && (
-                      <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="project-link demo-link">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                        </svg>
-                        Live Demo
-                      </a>
-                    )}
-                    {project.github && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link github-link">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V21"/>
-                        </svg>
-                        GitHub
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </ScrollStackItem>
-          ))}
-        </ScrollStack>
+        {isMobile ? (
+          // Mobile: Simple card grid
+          <div className="projects-grid-mobile">
+            {projectsData.map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </div>
+        ) : (
+          // Desktop: Scroll stack animation
+          <ScrollStack 
+            itemDistance={30}
+            itemScale={0.04}
+            baseScale={0.9}
+            itemStackDistance={30}
+            stackPosition="15%"
+          >
+            {projectsData.map((project, index) => (
+              <ScrollStackItem key={index}>
+                <ProjectCard project={project} />
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
+        )}
       </div>
     </section>
   );

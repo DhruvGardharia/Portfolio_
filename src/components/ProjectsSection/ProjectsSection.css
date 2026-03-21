@@ -1,9 +1,8 @@
 .projects-section {
-  background-color: var(--bg-deep); /* same as App.css, ensuring we keep padding/colors if needed */
+  background-color: var(--bg-deep);
   padding: 80px 40px 40px; 
+  transition: background-color 0.8s ease;
 }
-
-/* Because ScrollStack requires scrolling space, we add generous bottom padding */
 
 .projects-header {
   margin-bottom: 24px;
@@ -15,10 +14,10 @@
   gap: 32px;
   background-color: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: 16px; /* slightly softer for stack cards */
+  border-radius: 16px;
   padding: 32px;
-  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5); /* strong shadow distinguishes stacked cards */
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+  transition: box-shadow 0.8s ease, border-color 0.8s ease;
   cursor: default;
   height: auto;
   min-height: 400px;
@@ -39,6 +38,7 @@
   justify-content: center;
   overflow: hidden;
   padding: 0;
+  transition: background-color 0.8s ease;
 }
 
 .project-image-wrapper {
@@ -51,70 +51,74 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .image-placeholder-text {
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 16px;
+  text-align: center;
+  transition: color 0.8s ease;
 }
 
 .project-info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 16px;
 }
-
-
 
 .project-title {
   font-size: 28px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 16px;
-  letter-spacing: -0.5px;
-  transition: color 0.3s ease;
+  margin: 0;
+  transition: color 0.8s ease;
 }
 
 .project-subtitle {
-  font-size: 14px;
-  color: var(--accent);
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  opacity: 0.9;
+  color: var(--accent);
+  margin: 0;
+  transition: color 0.8s ease;
 }
 
 .project-description {
   font-size: 15px;
   color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 24px;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.8s ease;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 32px;
+  margin: 8px 0;
 }
 
 .card-tag {
   font-size: 12px;
-  font-weight: 500;
-  padding: 4px 12px;
-  border-radius: 20px;
-  background: var(--border-subtle);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-subtle);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  background-color: var(--accent-shadow);
+  color: var(--accent);
+  border-radius: 6px;
+  transition: all 0.8s ease;
+}
+
+.card-tag:hover {
+  background-color: var(--accent);
+  color: #0F172A;
 }
 
 .project-links {
   display: flex;
   gap: 12px;
-  align-items: center;
+  flex-wrap: wrap;
   margin-top: auto;
 }
 
@@ -122,41 +126,70 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--accent);
-  font-weight: 600;
+  padding: 10px 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-primary);
   font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
-  padding: 8px 14px;
-  border-radius: 6px;
-  border: 1.5px solid var(--accent);
-}
-
-.project-link:hover {
-  background-color: var(--accent-shadow);
-  transform: translateY(-2px);
-  transition: all 0.3s ease;
+  transition: all 0.8s ease;
 }
 
 .demo-link {
-  border-color: var(--accent);
   color: var(--accent);
+  border-color: var(--accent);
 }
 
-.github-link {
-  border-color: var(--text-secondary);
-  color: var(--text-secondary);
+.demo-link:hover {
+  background-color: var(--accent-shadow);
+  transition: all 0.8s ease;
 }
 
 .github-link:hover {
   background-color: var(--accent-shadow);
   border-color: var(--accent);
   color: var(--accent);
-  transition: all 0.3s ease;
+  transition: all 0.8s ease;
+}
+
+/* ─── MOBILE GRID LAYOUT ─────────────────────────── */
+.projects-grid-mobile {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.projects-grid-mobile .project-card {
+  flex-direction: column;
+  padding: 20px;
+  gap: 16px;
+  min-height: auto;
+}
+
+.projects-grid-mobile .project-image-placeholder {
+  min-height: 220px;
+}
+
+.projects-grid-mobile .project-title {
+  font-size: 20px;
+}
+
+.projects-grid-mobile .project-subtitle {
+  font-size: 14px;
+}
+
+.projects-grid-mobile .project-description {
+  font-size: 13px;
 }
 
 /* ─── RESPONSIVE ──────────────────────────────────── */
 @media (max-width: 900px) {
+  .projects-section {
+    padding: 80px 40px 40px;
+  }
+
   .project-card {
     flex-direction: column;
     padding: 24px;
@@ -169,5 +202,84 @@
   
   .project-title {
     font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 60px 24px 40px;
+  }
+
+  .projects-grid-mobile {
+    gap: 16px;
+  }
+
+  .projects-grid-mobile .project-card {
+    padding: 16px;
+  }
+
+  .projects-grid-mobile .project-image-placeholder {
+    min-height: 180px;
+  }
+
+  .projects-grid-mobile .project-title {
+    font-size: 18px;
+  }
+
+  .projects-grid-mobile .project-subtitle {
+    font-size: 12px;
+  }
+
+  .projects-grid-mobile .project-description {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 60px 16px 40px;
+  }
+
+  .projects-grid-mobile {
+    gap: 12px;
+  }
+
+  .projects-grid-mobile .project-card {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .projects-grid-mobile .project-image-placeholder {
+    min-height: 150px;
+  }
+
+  .projects-grid-mobile .project-title {
+    font-size: 16px;
+  }
+
+  .projects-grid-mobile .project-subtitle {
+    font-size: 11px;
+  }
+
+  .projects-grid-mobile .project-description {
+    font-size: 11px;
+  }
+
+  .project-tags {
+    gap: 6px;
+  }
+
+  .card-tag {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .project-links {
+    gap: 8px;
+  }
+
+  .project-link {
+    font-size: 12px;
+    padding: 8px 12px;
   }
 }

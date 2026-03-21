@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './ExperienceSection.css';
 
 const experiences = [
@@ -41,6 +42,12 @@ const experiences = [
 ];
 
 export default function ExperienceSection() {
+  const [expandedId, setExpandedId] = useState(null);
+
+  const toggleExpand = (id) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
+
   return (
     <section id="experience" className="experience-section">
       <div className="experience-inner">
@@ -49,32 +56,42 @@ export default function ExperienceSection() {
 
         <div className="experience-list">
           {experiences.map((exp) => (
-            <div key={exp.id} className="experience-card">
-              <div className="experience-logo-box">
-                {/* Company Logo goes here */}
-              </div>
+            <div key={exp.id} className={`experience-card ${expandedId === exp.id ? 'expanded' : ''}`}>
+              <div className="experience-header" onClick={() => toggleExpand(exp.id)}>
+                <div className="experience-logo-box">
+                  {/* Company Logo goes here */}
+                </div>
 
-              <div className="experience-details">
-                <div className="experience-header-row">
+                <div className="experience-header-content">
                   <h3 className="experience-company">{exp.company}</h3>
                   <span className="experience-role">{exp.role}</span>
                 </div>
-                
-                <div className="experience-subheader-row">
-                  <div className="experience-chips">
-                    {exp.chips.map((chip, idx) => (
-                      <span key={idx} className="chip">{chip}</span>
-                    ))}
-                  </div>
-                  <span className="experience-date">{exp.date}</span>
-                </div>
 
-                <ul className="experience-points">
-                  {exp.points.map((point, i) => (
-                    <li key={i}>{point}</li>
-                  ))}
-                </ul>
+                <button className="expand-toggle" aria-label="Toggle details">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
               </div>
+
+              {expandedId === exp.id && (
+                <div className="experience-details">
+                  <div className="experience-subheader-row">
+                    <div className="experience-chips">
+                      {exp.chips.map((chip, idx) => (
+                        <span key={idx} className="chip">{chip}</span>
+                      ))}
+                    </div>
+                    <span className="experience-date">{exp.date}</span>
+                  </div>
+
+                  <ul className="experience-points">
+                    {exp.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
         </div>

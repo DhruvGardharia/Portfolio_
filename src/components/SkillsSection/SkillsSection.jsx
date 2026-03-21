@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Cubes from './Cubes';
 import './SkillsSection.css';
 
@@ -40,6 +41,32 @@ const techSkills = [
 ];
 
 export default function SkillsSection() {
+  const [gridConfig, setGridConfig] = useState({ gridSize: 8, radius: 2.2, maxAngle: 45 });
+
+  useEffect(() => {
+    const updateGridConfig = () => {
+      const width = window.innerWidth;
+      
+      if (width >= 1024) {
+        // Desktop: 6 columns (6x6 = 36 unique items, original setting)
+        setGridConfig({ gridSize: 6, radius: 2.0, maxAngle: 45 });
+      } else if (width >= 768) {
+        // Tablet: 5 columns
+        setGridConfig({ gridSize: 5, radius: 1.9, maxAngle: 45 });
+      } else if (width >= 480) {
+        // Mobile: 5 columns (maximize horizontal)
+        setGridConfig({ gridSize: 5, radius: 1.8, maxAngle: 45 });
+      } else {
+        // Small phone: 4 columns (maximize horizontal)
+        setGridConfig({ gridSize: 4, radius: 1.6, maxAngle: 45 });
+      }
+    };
+
+    updateGridConfig();
+    window.addEventListener('resize', updateGridConfig);
+    return () => window.removeEventListener('resize', updateGridConfig);
+  }, []);
+
   return (
     <section className="skills-section">
       <div className="section-inner skills-inner">
@@ -51,12 +78,13 @@ export default function SkillsSection() {
           </p>
         </div>
         
+        {/* Always show 3D Cube visualization with responsive sizing */}
         <div className="skills-visual">
           <div className="skills-visual-container">
             <Cubes 
-              gridSize={6}
-              maxAngle={45}
-              radius={1.8}
+              gridSize={gridConfig.gridSize}
+              maxAngle={gridConfig.maxAngle}
+              radius={gridConfig.radius}
               borderStyle="1px solid var(--border-subtle)"
               faceColor="var(--bg-card)"
               rippleColor="var(--accent)"
