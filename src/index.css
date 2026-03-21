@@ -1,6 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
-/* ─── DARK THEME ─────────────────────────────────────── */
+/* ─── DEFAULT (DARK) THEME ────────────────────────────── */
+html {
+  --bg-main:       #1B1B1D;
+  --bg-nav:        #242426;
+  --bg-deep:       #0F1012;
+  --bg-card:       #18181A;
+
+  --text-primary:  #F8FAFC;
+  --text-secondary:#9CA3AF;
+
+  --accent:        #D4AF37;
+  --accent-shadow: rgba(212, 175, 55, 0.15);
+  --accent-glow:   rgba(212, 175, 55, 0.4);
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --shadow-nav:    0 2px 20px rgba(0, 0, 0, 0.4);
+  --shadow-card:   0 8px 30px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── LIGHT THEME (via data-theme attribute) ────────── */
+html[data-theme='light'] {
+  --bg-main:       #FFFFFF;
+  --bg-nav:        #FAFAFA;
+  --bg-deep:       #F5F5F7;
+  --bg-card:       #FFFFFF;
+
+  --text-primary:  #1F2937;
+  --text-secondary:#6B7280;
+
+  --accent:        #4F46E5;
+  --accent-shadow: rgba(79, 70, 229, 0.08);
+  --accent-glow:   rgba(79, 70, 229, 0.25);
+
+  --border-subtle: #E5E7EB;
+  --shadow-nav:    0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-card:   0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ─── DARK THEME (via data-theme attribute) ─────────── */
+html[data-theme='dark'] {
+  --bg-main:       #1B1B1D;
+  --bg-nav:        #242426;
+  --bg-deep:       #0F1012;
+  --bg-card:       #18181A;
+
+  --text-primary:  #F8FAFC;
+  --text-secondary:#9CA3AF;
+
+  --accent:        #D4AF37;
+  --accent-shadow: rgba(212, 175, 55, 0.15);
+  --accent-glow:   rgba(212, 175, 55, 0.4);
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --shadow-nav:    0 2px 20px rgba(0, 0, 0, 0.4);
+  --shadow-card:   0 8px 30px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── LEGACY BODY CLASS SUPPORT (for React updates) ─── */
 body.dark {
   --bg-main:       #1B1B1D;
   --bg-nav:        #242426;
@@ -20,7 +80,6 @@ body.dark {
   --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* ─── LIGHT THEME ────────────────────────────────────── */
 body.light {
   --bg-main:       #FFFFFF;
   --bg-nav:        #FAFAFA;
@@ -40,7 +99,7 @@ body.light {
   --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* ─── RESET & BASE ───────────────────────────────────── */
+/* ─── RESET ──────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -51,6 +110,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ─── BASE ───────────────────────────────────────────── */
 body {
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 14px;

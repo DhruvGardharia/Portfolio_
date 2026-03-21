@@ -5,8 +5,24 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>portfolio</title>
+    <script>
+      (function() {
+        const theme = localStorage.getItem('portfolio-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <style>
+      :root[data-theme='dark'] { --theme-bg: #1B1B1D; }
+      :root[data-theme='light'] { --theme-bg: #FFFFFF; }
+      html:not([data-theme]) { background: #1B1B1D; }
+      body { background-color: var(--theme-bg, #1B1B1D); }
+    </style>
   </head>
   <body>
+    <script>
+      const theme = localStorage.getItem('portfolio-theme') || 'dark';
+      document.body.className = theme;
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
