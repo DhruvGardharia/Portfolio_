@@ -30,9 +30,9 @@ html[data-theme='light'] {
   --text-primary:  #1F2937;
   --text-secondary:#6B7280;
 
-  --accent:        #4F46E5;
-  --accent-shadow: rgba(79, 70, 229, 0.08);
-  --accent-glow:   rgba(79, 70, 229, 0.25);
+  --accent:        #7C3AED;
+  --accent-shadow: rgba(124, 58, 237, 0.08);
+  --accent-glow:   rgba(124, 58, 237, 0.25);
 
   --border-subtle: #D1D5DB;
   --shadow-nav:    0 2px 8px rgba(0, 0, 0, 0.12);
