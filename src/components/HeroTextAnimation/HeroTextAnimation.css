@@ -1,0 +1,92 @@
+.hero-text-anim-container {
+  /* Prevent layout shift by enforcing a strictly static height */
+  height: 64px; /* Perfectly fits 1 line on desktop */
+  display: flex;
+  align-items: flex-start;
+}
+
+.hero-text-anim {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0;
+
+  /* Very subtle animated gradient text */
+  background: linear-gradient(
+    75deg, 
+    #F8FAFC 0%, 
+    #9CA3AF 30%, 
+    #D4AF37 50%, 
+    #9CA3AF 70%, 
+    #F8FAFC 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shineSubtle 12s linear infinite;
+  
+  /* Fallback text color */
+  -webkit-text-fill-color: transparent;
+}
+
+/* Light mode specific adjustment if needed over light background */
+body.light .hero-text-anim {
+  /* Slightly darker mix to stand out on F1F5F9 */
+  background: linear-gradient(
+    75deg, 
+    #0F172A 0%, 
+    #64748B 30%, 
+    #D4AF37 50%, 
+    #64748B 70%, 
+    #0F172A 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes shineSubtle {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.blinking-cursor {
+  font-weight: 300;
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-text-anim {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-text-anim-container {
+    height: 120px; /* Accommodate 2 lines on smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-text-anim-container {
+    height: 90px;
+  }
+  .hero-text-anim {
+    font-size: 32px;
+  }
+}

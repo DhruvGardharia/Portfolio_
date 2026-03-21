@@ -1,0 +1,44 @@
+.about-section {
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  /* Top padding is smaller because HeroSection already provides some visual space, 
+     but we still want clear separation. Bottom padding transitions to the next section. */
+  padding: 0 40px 100px; 
+  text-align: left;
+}
+
+.about-inner {
+  max-width: 700px;
+}
+
+.about-heading {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.about-text {
+  font-size: 18px; /* Increased from 16px for better readability */
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 600px) {
+  .about-section {
+    padding: 0 24px 80px;
+  }
+  
+  .about-heading {
+    font-size: 22px;
+  }
+  
+  .about-text {
+    font-size: 16px; /* Scaled down for mobile but still large */
+  }
+}

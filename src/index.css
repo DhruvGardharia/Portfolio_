@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* ─── DARK THEME ─────────────────────────────────────── */
+body.dark {
+  --bg-main:       #1B1B1D;
+  --bg-nav:        #242426;
+  --bg-deep:       #0F1012;
+  --bg-card:       #18181A;
+
+  --text-primary:  #F8FAFC;
+  --text-secondary:#9CA3AF;
+
+  --accent:        #D4AF37;
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --shadow-nav:    0 2px 20px rgba(0, 0, 0, 0.4);
+  --shadow-card:   0 8px 30px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── LIGHT THEME ────────────────────────────────────── */
+body.light {
+  --bg-main:       #F1F5F9;
+  --bg-nav:        #E2E8F0;
+  --bg-deep:       #E5E7EB;
+  --bg-card:       #FFFFFF;
+
+  --text-primary:  #0F172A;
+  --text-secondary:#64748B;
+
+  --accent:        #D4AF37;
+
+  --border-subtle: rgba(0, 0, 0, 0.07);
+  --shadow-nav:    0 2px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card:   0 4px 20px rgba(0, 0, 0, 0.07);
+  --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ─── RESET & BASE ───────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  background-color: var(--bg-main);
+  color: var(--text-secondary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

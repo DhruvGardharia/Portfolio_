@@ -1,0 +1,177 @@
+.experience-section {
+  background-color: var(--bg-deep); /* Darker background layer */
+  padding: 100px 40px;
+  transition: background-color 0.3s ease;
+}
+
+.experience-inner {
+  max-width: 1160px; /* Fully matches the width of the Hero section */
+  margin: 0 auto;
+}
+
+/* Reusing section-label and section-heading global styles that we defined in App.css earlier */
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.experience-card {
+  display: flex;
+  gap: 24px; /* Space between logo and content */
+  background-color: var(--bg-card);
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.experience-logo-box {
+  width: 64px;
+  height: 64px;
+  background-color: var(--bg-nav);
+  border: 1.5px dashed var(--text-secondary);
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex; /* Centers fallback initial */
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-logo-box.has-logo {
+  border: none; /* Remove dashed line when image is present */
+  background-color: #fff; /* Ensures transparent black-text logos are visible on dark themes */
+  width: 140px; /* Wide enough for rectangular logos like ValetPe */
+  height: 64px;
+  padding: 6px 12px; /* Breathing room inside the white box */
+}
+
+.experience-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Will gracefully fit any shape without distortion */
+  border-radius: 0; /* Let the box handle the border radius */
+}
+
+.experience-logo-fallback {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-secondary);
+}
+
+.experience-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.experience-company {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.experience-role {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.experience-subheader-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.experience-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background-color: rgba(212, 175, 55, 0.1); /* Subtle accent tint */
+  color: var(--accent);
+  border-radius: 4px; /* distinct rectangle chip */
+}
+
+.experience-date {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.experience-points {
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-points li {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.6; /* Tighter line height to look compact vertically */
+  margin-bottom: 6px; /* Space between bullets */
+}
+
+.experience-points li::marker {
+  color: var(--text-secondary);
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 600px) {
+  .experience-section {
+    padding: 80px 24px;
+  }
+
+  .experience-card {
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .experience-logo-box {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .experience-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .experience-subheader-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
