@@ -34,8 +34,9 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  justify-content: space-between;
   padding: 32px;
-  cursor: pointer;
+  cursor: default;
   transition: background-color 0.8s ease;
 }
 
@@ -43,28 +44,37 @@
   background-color: rgba(255, 255, 255, 0.02);
 }
 
-.experience-logo-box {
-  width: 64px;
-  height: 64px;
-  background-color: var(--bg-nav);
-  border: 1.5px dashed var(--text-secondary);
-  border-radius: 12px;
-  flex-shrink: 0;
+.experience-header-left {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.experience-header-content {
+  gap: 20px;
+  align-items: flex-start;
   flex: 1;
   min-width: 0;
+}
+
+.experience-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.experience-logo-box {
+  display: none;
+}
+
+.experience-left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .experience-company {
   font-size: 18px;
   font-weight: 700;
   color: var(--text-primary);
-  margin: 0 0 6px 0;
+  margin: 0;
   letter-spacing: -0.3px;
 }
 
@@ -73,6 +83,13 @@
   font-weight: 600;
   color: var(--accent);
   margin: 0;
+  text-align: right;
+}
+
+.experience-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .expand-toggle {
@@ -80,7 +97,7 @@
   border: none;
   cursor: pointer;
   padding: 8px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
@@ -103,6 +120,12 @@
   padding: 0 32px 32px 32px;
   padding-top: 0;
   border-top: 1px solid var(--border-subtle);
+  max-height: 1000px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.experience-details.visible {
   animation: slideDown 0.3s ease forwards;
 }
 
@@ -118,18 +141,7 @@
 }
 
 .experience-subheader-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.experience-chips {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  display: none;
 }
 
 .chip {
@@ -171,7 +183,7 @@
   transition: color 0.8s ease;
 }
 
-/* ─── RESPONSIVE MOBILE ──────────────────────────── */
+/* ─── RESPONSIVE TABLET ──────────────────────────── */
 @media (max-width: 768px) {
   .experience-section {
     padding: 80px 24px;
@@ -180,15 +192,41 @@
   .experience-header {
     padding: 24px;
     gap: 16px;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .experience-header-left {
+    gap: 16px;
+  }
+
+  .experience-header-right {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .expand-toggle {
+    display: flex;
   }
 
   .experience-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 24px;
+    border-top: none;
+  }
+
+  .experience-details.visible {
+    max-height: 1000px;
+    opacity: 1;
     padding: 0 24px 24px 24px;
+    border-top: 1px solid var(--border-subtle);
   }
 
   .experience-logo-box {
-    width: 52px;
-    height: 52px;
+    display: none;
   }
 
   .experience-company {
@@ -197,9 +235,11 @@
 
   .experience-role {
     font-size: 13px;
+    text-align: left;
   }
 }
 
+/* ─── RESPONSIVE MOBILE ──────────────────────────── */
 @media (max-width: 480px) {
   .experience-section {
     padding: 60px 16px;
@@ -208,15 +248,41 @@
   .experience-header {
     padding: 16px;
     gap: 12px;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .experience-header-left {
+    gap: 12px;
+  }
+
+  .experience-header-right {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .expand-toggle {
+    display: flex;
   }
 
   .experience-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 16px;
+    border-top: none;
+  }
+
+  .experience-details.visible {
+    max-height: 1000px;
+    opacity: 1;
     padding: 0 16px 16px 16px;
+    border-top: 1px solid var(--border-subtle);
   }
 
   .experience-logo-box {
-    width: 44px;
-    height: 44px;
+    display: none;
   }
 
   .experience-company {
@@ -225,6 +291,7 @@
 
   .experience-role {
     font-size: 12px;
+    text-align: left;
   }
 
   .experience-points li {

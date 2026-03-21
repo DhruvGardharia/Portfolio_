@@ -1,4 +1,8 @@
 import { useState, useEffect } from 'react'
+import ParticleBackground from './components/ParticleBackground/ParticleBackground'
+import Particles from './components/Particles/Particles'
+import CursorParticles from './components/CursorParticles/CursorParticles'
+import LightRays from './components/LightRays/LightRays'
 import HeroSection from './components/HeroSection/HeroSection'
 import AboutSection from './components/AboutSection/AboutSection'
 import ExperienceSection from './components/ExperienceSection/ExperienceSection'
@@ -32,11 +36,23 @@ export default function App() {
 
   return (
     <>
+      <ParticleBackground />
+      <Particles
+        particleCount={200}
+        particleSpread={10}
+        speed={0.1}
+        particleBaseSize={80}
+        moveParticlesOnHover={false}
+        alphaParticles={false}
+        disableRotation={false}
+        pixelRatio={1}
+      />
+      <CursorParticles />
       {/* ── NAVBAR ─────────────────────────────────── */}
       <nav className="navbar">
         <div className="navbar-inner">
           <div className="nav-logo">
-            Dhruv<span> Gardharia</span>
+            PORT<span>FOLIO</span>
           </div>
 
           <ul className="nav-links">
@@ -53,7 +69,44 @@ export default function App() {
       </nav>
 
       {/* ── HERO ───────────────────────────────────── */}
-      <HeroSection />
+      <div style={{ position: 'relative', width: '100%' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '600px', zIndex: 3, display: 'flex', pointerEvents: 'none' }}>
+          {/* Rays from left */}
+          <div style={{ flex: 1, position: 'relative' }}>
+            <LightRays
+              raysOrigin="top-left"
+              raysColor={theme === 'dark' ? '#D4AF37' : '#4F46E5'}
+              raysSpeed={0.8}
+              lightSpread={0.5}
+              rayLength={3}
+              followMouse={true}
+              mouseInfluence={0.08}
+              noiseAmount={0}
+              distortion={0}
+              fadeDistance={0.8}
+              pulsating={false}
+            />
+          </div>
+          
+          {/* Rays from right */}
+          <div style={{ flex: 1, position: 'relative' }}>
+            <LightRays
+              raysOrigin="top-right"
+              raysColor={theme === 'dark' ? '#D4AF37' : '#4F46E5'}
+              raysSpeed={0.8}
+              lightSpread={0.5}
+              rayLength={3}
+              followMouse={true}
+              mouseInfluence={0.08}
+              noiseAmount={0}
+              distortion={0}
+              fadeDistance={0.8}
+              pulsating={false}
+            />
+          </div>
+        </div>
+        <HeroSection />
+      </div>
 
       {/* ── ABOUT ──────────────────────────────────── */}
       <AboutSection />

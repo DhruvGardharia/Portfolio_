@@ -57,14 +57,21 @@ export default function ExperienceSection() {
         <div className="experience-list">
           {experiences.map((exp) => (
             <div key={exp.id} className={`experience-card ${expandedId === exp.id ? 'expanded' : ''}`}>
-              <div className="experience-header" onClick={() => toggleExpand(exp.id)}>
-                <div className="experience-logo-box">
-                  {/* Company Logo goes here */}
+              <div className="experience-header" onClick={() => toggleExpand(exp.id) }>
+                <div className="experience-header-left">
+                  <div className="experience-left-content">
+                    <h3 className="experience-company">{exp.company}</h3>
+                    <div className="experience-chips">
+                      {exp.chips.map((chip, idx) => (
+                        <span key={idx} className="chip">{chip}</span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
-                <div className="experience-header-content">
-                  <h3 className="experience-company">{exp.company}</h3>
+                <div className="experience-header-right">
                   <span className="experience-role">{exp.role}</span>
+                  <span className="experience-date">{exp.date}</span>
                 </div>
 
                 <button className="expand-toggle" aria-label="Toggle details">
@@ -74,24 +81,13 @@ export default function ExperienceSection() {
                 </button>
               </div>
 
-              {expandedId === exp.id && (
-                <div className="experience-details">
-                  <div className="experience-subheader-row">
-                    <div className="experience-chips">
-                      {exp.chips.map((chip, idx) => (
-                        <span key={idx} className="chip">{chip}</span>
-                      ))}
-                    </div>
-                    <span className="experience-date">{exp.date}</span>
-                  </div>
-
-                  <ul className="experience-points">
-                    {exp.points.map((point, i) => (
-                      <li key={i}>{point}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              <div className={`experience-details ${expandedId === exp.id ? 'visible' : ''}`}>
+                <ul className="experience-points">
+                  {exp.points.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

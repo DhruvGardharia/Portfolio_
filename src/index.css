@@ -23,7 +23,7 @@ html {
 /* ─── LIGHT THEME (via data-theme attribute) ────────── */
 html[data-theme='light'] {
   --bg-main:       #FFFFFF;
-  --bg-nav:        #FAFAFA;
+  --bg-nav:        #F3F4F6;
   --bg-deep:       #F5F5F7;
   --bg-card:       #FFFFFF;
 
@@ -34,8 +34,8 @@ html[data-theme='light'] {
   --accent-shadow: rgba(79, 70, 229, 0.08);
   --accent-glow:   rgba(79, 70, 229, 0.25);
 
-  --border-subtle: #E5E7EB;
-  --shadow-nav:    0 1px 3px rgba(0, 0, 0, 0.08);
+  --border-subtle: #D1D5DB;
+  --shadow-nav:    0 2px 8px rgba(0, 0, 0, 0.12);
   --shadow-card:   0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
@@ -82,7 +82,7 @@ body.dark {
 
 body.light {
   --bg-main:       #FFFFFF;
-  --bg-nav:        #FAFAFA;
+  --bg-nav:        #F3F4F6;
   --bg-deep:       #F5F5F7;
   --bg-card:       #FFFFFF;
 
@@ -93,8 +93,8 @@ body.light {
   --accent-shadow: rgba(79, 70, 229, 0.08);
   --accent-glow:   rgba(79, 70, 229, 0.25);
 
-  --border-subtle: #E5E7EB;
-  --shadow-nav:    0 1px 3px rgba(0, 0, 0, 0.08);
+  --border-subtle: #D1D5DB;
+  --shadow-nav:    0 2px 8px rgba(0, 0, 0, 0.12);
   --shadow-card:   0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
