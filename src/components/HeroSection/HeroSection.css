@@ -62,8 +62,8 @@
   font-weight: 800;
   color: var(--text-primary);
   /* Premium glow effect (reduced size to match smaller font) */
-  text-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
-  transition: color 0.3s ease;
+  text-shadow: 0 4px 16px var(--accent-glow);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .hero-subtitle {

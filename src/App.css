@@ -6,7 +6,7 @@
   background-color: var(--bg-nav);
   border-bottom: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-nav);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.8s ease, box-shadow 0.8s ease, border-color 0.8s ease;
 }
 
 .navbar-inner {
@@ -24,17 +24,18 @@
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.5px;
-  transition: color 0.3s ease;
+  transition: color 0.8s ease;
 }
 
 .nav-logo span {
   color: var(--accent);
+  transition: color 0.8s ease;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 8px;
   list-style: none;
 }
 
@@ -44,38 +45,35 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.2px;
-  transition: color 0.25s ease;
+  transition: all 0.8s ease;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid transparent;
 }
 
 .nav-links a:hover {
-  color: var(--text-primary);
+  color: var(--accent);
+  border: 1px solid var(--accent);
 }
 
 /* ─── THEME TOGGLE ────────────────────────────────── */
 .theme-toggle {
-  background: var(--border-subtle);
-  border: 1px solid var(--border-subtle);
+  background: transparent;
+  border: none;
   border-radius: 8px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1;
   color: var(--text-primary);
-  transition: background 0.25s ease, transform 0.2s ease;
+  transition: color 0.8s ease;
   display: flex;
   align-items: center;
-  gap: 6px;
-}
-
-.theme-toggle:hover {
-  background: rgba(212, 175, 55, 0.1);
-  transform: scale(1.05);
+  justify-content: center;
 }
 
 .theme-toggle-label {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-secondary);
+  display: none;
 }
 
 /* ─── HERO SECTION ────────────────────────────────── */
@@ -91,6 +89,7 @@
   background-color: var(--accent);
   margin-bottom: 28px;
   border-radius: 2px;
+  transition: background-color 0.8s ease;
 }
 
 .hero-eyebrow {
@@ -100,6 +99,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 20px;
+  transition: color 0.8s ease;
 }
 
 .hero-heading {
@@ -110,12 +110,13 @@
   line-height: 1.1;
   margin-bottom: 24px;
   max-width: 680px;
-  transition: color 0.3s ease;
+  transition: color 0.8s ease;
 }
 
 .hero-heading em {
   font-style: normal;
   color: var(--accent);
+  transition: color 0.8s ease;
 }
 
 .hero-description {
@@ -138,7 +139,7 @@
   border-radius: 8px;
   text-decoration: none;
   letter-spacing: 0.2px;
-  transition: opacity 0.25s ease, transform 0.2s ease;
+  transition: background-color 0.8s ease, opacity 0.25s ease, transform 0.2s ease;
 }
 
 .hero-cta:hover {
@@ -150,7 +151,7 @@
 .projects-section {
   background-color: var(--bg-deep);
   padding: 80px 40px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.8s ease;
 }
 
 .section-inner {
@@ -165,6 +166,7 @@
   letter-spacing: 2.5px;
   text-transform: uppercase;
   margin-bottom: 12px;
+  transition: color 0.8s ease;
 }
 
 .section-heading {
@@ -174,7 +176,7 @@
   letter-spacing: -0.5px;
   line-height: 1.2;
   margin-bottom: 48px;
-  transition: color 0.3s ease;
+  transition: color 0.8s ease;
 }
 
 
@@ -185,7 +187,7 @@
   border-top: 1px solid var(--border-subtle);
   padding: 32px 40px;
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.8s ease, border-color 0.8s ease;
 }
 
 .footer p {
@@ -196,6 +198,7 @@
 
 .footer span {
   color: var(--accent);
+  transition: color 0.8s ease;
 }
 
 /* ─── RESPONSIVE ──────────────────────────────────── */

@@ -7,6 +7,7 @@ import ProjectsSection from './components/ProjectsSection/ProjectsSection'
 import AchievementsSection from './components/AchievementsSection/AchievementsSection'
 import LeadershipSection from './components/LeadershipSection/LeadershipSection'
 import ResumeSection from './components/ResumeSection/ResumeSection'
+import GetInTouchSection from './components/GetInTouchSection/GetInTouchSection'
 import './App.css'
 
 // ─── APP ──────────────────────────────────────────────────────────
@@ -23,6 +24,11 @@ export default function App() {
   const toggleTheme = () =>
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
 
+  const scrollToTop = (e) => {
+    e.preventDefault()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <>
       {/* ── NAVBAR ─────────────────────────────────── */}
@@ -33,15 +39,12 @@ export default function App() {
           </div>
 
           <ul className="nav-links">
-            <li><a href="#hero">Home</a></li>
+            <li><a href="#hero" onClick={scrollToTop}>Home</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#footer">Contact</a></li>
             <li>
               <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
                 {theme === 'dark' ? '☀️' : '🌙'}
-                <span className="theme-toggle-label">
-                  {theme === 'dark' ? 'Light' : 'Dark'}
-                </span>
               </button>
             </li>
           </ul>
@@ -71,6 +74,9 @@ export default function App() {
 
       {/* ── RESUME ─────────────────────────────────── */}
       <ResumeSection />
+
+      {/* ── GET IN TOUCH ───────────────────────────── */}
+      <GetInTouchSection />
 
       {/* ── FOOTER ─────────────────────────────────── */}
       <footer id="footer" className="footer">

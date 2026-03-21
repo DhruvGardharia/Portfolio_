@@ -37,23 +37,24 @@
   height: 8px;
   border-radius: 50%;
   background-color: var(--accent);
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 12px var(--accent-glow);
   animation: pulse 2s infinite;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 @keyframes pulse {
   0%, 100% {
-    box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 12px var(--accent-glow);
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 20px var(--accent-glow);
     transform: scale(1.2);
   }
 }
 
 .section-divider:hover .divider-line {
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 8px var(--accent-shadow);
 }
 
 .leadership-header {

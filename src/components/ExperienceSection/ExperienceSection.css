@@ -118,7 +118,7 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   padding: 4px 10px;
-  background-color: rgba(212, 175, 55, 0.1); /* Subtle accent tint */
+  background-color: var(--accent-shadow); /* Subtle accent tint */
   color: var(--accent);
   border-radius: 4px; /* distinct rectangle chip */
 }

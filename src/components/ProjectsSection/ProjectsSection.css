@@ -133,8 +133,9 @@
 }
 
 .project-link:hover {
-  background-color: rgba(212, 175, 55, 0.1);
+  background-color: var(--accent-shadow);
   transform: translateY(-2px);
+  transition: all 0.3s ease;
 }
 
 .demo-link {
@@ -148,9 +149,10 @@
 }
 
 .github-link:hover {
-  background-color: rgba(212, 175, 55, 0.05);
+  background-color: var(--accent-shadow);
   border-color: var(--accent);
   color: var(--accent);
+  transition: all 0.3s ease;
 }
 
 /* ─── RESPONSIVE ──────────────────────────────────── */
