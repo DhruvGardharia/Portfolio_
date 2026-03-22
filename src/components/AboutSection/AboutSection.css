@@ -2,9 +2,8 @@
   max-width: 1160px;
   width: 100%;
   margin: 0 auto;
-  /* Top padding is smaller because HeroSection already provides some visual space, 
-     but we still want clear separation. Bottom padding transitions to the next section. */
-  padding: 0 40px 100px; 
+  /* Top padding centers the section vertically between hero and experience sections */
+  padding: 80px 40px 100px; 
   text-align: left;
 }
 
@@ -31,7 +30,7 @@
 /* ─── RESPONSIVE ──────────────────────────────────── */
 @media (max-width: 600px) {
   .about-section {
-    padding: 0 24px 80px;
+    padding: 20px 24px 80px;
   }
   
   .about-heading {

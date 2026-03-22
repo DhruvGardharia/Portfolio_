@@ -4,6 +4,8 @@ import HeroTextAnimation from '../HeroTextAnimation/HeroTextAnimation';
 export default function HeroSection() {
   return (
     <section className="hero-component">
+      <div className="hero-bg-image"></div>
+      <div className="hero-bg-overlay"></div>
       <div className="hero-layout">
         <div className="hero-image-placeholder"></div>
         <div className="hero-content">
