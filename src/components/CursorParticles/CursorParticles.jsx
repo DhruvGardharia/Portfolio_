@@ -52,7 +52,9 @@ const CursorParticles = () => {
     let lastX = window.innerWidth / 2;
     let lastY = window.innerHeight / 2;
     let lastSpawnTime = 0;
-    const spawnInterval = 30; // ms between particle spawns
+    // Adaptive spawn interval: mobile 80ms, tablet 50ms, desktop 30ms
+    const spawnInterval = window.innerWidth < 768 ? 80 : window.innerWidth < 1024 ? 50 : 30;
+    const particleCount = window.innerWidth < 768 ? 1 : 2; // Spawn 1 particle on mobile, 2 on desktop
 
     const handleMouseMove = (e) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
@@ -60,10 +62,10 @@ const CursorParticles = () => {
       // Spawn particles at intervals along cursor path
       const now = Date.now();
       if (now - lastSpawnTime > spawnInterval) {
-        // Create multiple particles for smooth trail
-        for (let i = 0; i < 2; i++) {
+        // Create multiple particles for smooth trail (adaptive count)
+        for (let i = 0; i < particleCount; i++) {
           // Slightly offset position along the movement path
-          const t = i / 2;
+          const t = i / Math.max(particleCount, 1);
           const spawnX = lastX + (e.clientX - lastX) * t;
           const spawnY = lastY + (e.clientY - lastY) * t;
           particlesRef.current.push(createParticle(spawnX, spawnY));

@@ -86,7 +86,9 @@ const fragment = /* glsl */ `
 `;
 
 const Particles = ({
-  particleCount = 200,
+  particleCount = typeof window !== 'undefined' 
+    ? window.innerWidth < 768 ? 60 : window.innerWidth < 1200 ? 120 : 200
+    : 200,
   particleSpread = 10,
   speed = 0.1,
   particleColors,
