@@ -96,15 +96,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 4px 8px;
   display: none;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
   flex-shrink: 0;
   transition: transform 0.3s ease, color 0.8s ease;
-  width: 36px;
-  height: 36px;
+  width: auto;
+  height: auto;
 }
 
 .expand-toggle:hover {
@@ -113,6 +113,12 @@
 
 .experience-card.expanded .expand-toggle {
   transform: rotate(180deg);
+}
+
+.experience-right-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* ─── EXPANDED DETAILS ───────────────────────────── */
@@ -208,6 +214,7 @@
 
   .expand-toggle {
     display: flex;
+    color: var(--accent);
   }
 
   .experience-details {
@@ -262,8 +269,19 @@
     width: 100%;
   }
 
+  .experience-right-bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
   .expand-toggle {
     display: flex;
+    color: var(--accent);
+    padding: 4px 8px;
+    margin-left: 0;
   }
 
   .experience-details {
@@ -297,10 +315,5 @@
   .experience-points li {
     font-size: 13px;
     margin-bottom: 6px;
-  }
-
-  .expand-toggle {
-    width: 32px;
-    height: 32px;
   }
 }
