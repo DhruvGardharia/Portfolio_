@@ -26,6 +26,10 @@ const Cubes = ({
   const simPosRef = useRef({ x: 0, y: 0 });
   const simTargetRef = useRef({ x: 0, y: 0 });
   const simRAFRef = useRef(null);
+  const isScrollingRef = useRef(false);
+  const scrollTimerRef = useRef(null);
+  const lastMoveTimeRef = useRef(0);
+  const THROTTLE_MS = 32; // ~30fps for hover, less frequent during scroll
 
   const colGap = typeof cellGap === 'number' ? `${cellGap}px` : cellGap?.col !== undefined ? `${cellGap.col}px` : '5%';
   const rowGap = typeof cellGap === 'number' ? `${cellGap}px` : cellGap?.row !== undefined ? `${cellGap.row}px` : '5%';
@@ -66,8 +70,15 @@ const Cubes = ({
 
   const onPointerMove = useCallback(
     e => {
+      // Skip if scrolling is active (reduces animation load)
+      if (isScrollingRef.current) return;
+
       userActiveRef.current = true;
       if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+
+      const now = Date.now();
+      if (now - lastMoveTimeRef.current < THROTTLE_MS) return;
+      lastMoveTimeRef.current = now;
 
       const rect = sceneRef.current.getBoundingClientRect();
       const cellW = rect.width / gridSize;
@@ -223,6 +234,23 @@ const Cubes = ({
     };
   }, [autoAnimate, gridSize, tiltAt]);
 
+  // Scroll-aware animation throttling
+  useEffect(() => {
+    const handleScroll = () => {
+      isScrollingRef.current = true;
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+      scrollTimerRef.current = setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 150); // Resume hover animations 150ms after scroll stops
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+    };
+  }, []);
+
   useEffect(() => {
     const el = sceneRef.current;
     if (!el) return;
@@ -246,6 +274,7 @@ const Cubes = ({
 
       rafRef.current != null && cancelAnimationFrame(rafRef.current);
       idleTimerRef.current && clearTimeout(idleTimerRef.current);
+      scrollTimerRef.current && clearTimeout(scrollTimerRef.current);
     };
   }, [onPointerMove, resetAll, onClick, onTouchMove, onTouchStart, onTouchEnd]);
 

@@ -70,7 +70,7 @@ export default function App() {
 
       {/* ── HERO ───────────────────────────────────── */}
       <div style={{ position: 'relative', width: '100%' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '600px', zIndex: 3, display: 'flex', pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '800px', zIndex: 3, display: 'flex', pointerEvents: 'none' }}>
           {/* Rays from left */}
           <div style={{ flex: 1, position: 'relative' }}>
             <LightRays

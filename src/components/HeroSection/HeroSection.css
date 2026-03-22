@@ -50,9 +50,9 @@ html[data-theme='light'] .hero-bg-image {
   pointer-events: none;
 }
 
-/* Light theme overlay - subtle to show image clearly */
+/* Light theme overlay - extremely subtle to avoid dividing line */
 html[data-theme='light'] .hero-bg-overlay {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.05) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 @keyframes fadeIn {

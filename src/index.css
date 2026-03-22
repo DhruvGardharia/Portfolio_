@@ -5,11 +5,14 @@ html, body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  will-change: background-color, color;
 }
 
 body {
   overflow-x: hidden;
   width: 100%;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ─── DEFAULT (DARK) THEME ────────────────────────────── */
@@ -29,8 +32,8 @@ html {
   --border-subtle: rgba(255, 255, 255, 0.06);
   --shadow-nav:    0 2px 20px rgba(0, 0, 0, 0.4);
   --shadow-card:   0 8px 30px rgba(0, 0, 0, 0.35);
-  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.5);
-}
+  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.5);  
+  transition: --bg-main 0.4s ease, --bg-nav 0.4s ease, --bg-deep 0.4s ease, --bg-card 0.4s ease, --text-primary 0.4s ease, --text-secondary 0.4s ease;}
 
 /* ─── LIGHT THEME (via data-theme attribute) ────────── */
 html[data-theme='light'] {
