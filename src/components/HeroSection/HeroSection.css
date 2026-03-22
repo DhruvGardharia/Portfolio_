@@ -202,11 +202,15 @@ html[data-theme='light'] .hero-bg-overlay {
     font-size: 22px;
   }
   
+  .hero-subtitle {
+    margin-top: 280px;
+  }
+  
   .hero-socials {
     justify-content: center;
     gap: 24px;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 20px;
   }
   
   .hero-bg-image {
