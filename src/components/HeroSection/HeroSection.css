@@ -154,4 +154,10 @@
   .hero-name {
     font-size: 22px;
   }
+  
+  .hero-socials {
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+  }
 }
